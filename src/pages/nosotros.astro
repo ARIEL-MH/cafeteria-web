@@ -3,12 +3,12 @@ import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { BaseWpSchema } from "@/types/index.ts";
 
-const url = "http://localhost/cofeeshop/wp-json/wp/v2/pages?slug=nosotros";
+const url = `${import.meta.env.API_URL}/pages?slug=nosotros`;
 const res = await fetch(url);
 const json = await res.json();
 console.log(json);
 const data = BaseWpSchema.parse(json[0]);
-console.log(data);
+
 ---
 
 <Layout
